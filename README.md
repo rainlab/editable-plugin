@@ -18,6 +18,7 @@ url = "/a-page"
 ```
 
 Alternative usage:
+
 ```
 title = "A page"
 url = "/a-page"
