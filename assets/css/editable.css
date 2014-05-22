@@ -1,0 +1,20 @@
+.control-editable {
+  display: none;
+  position: absolute;
+  text-align: right;
+  background: rgba(246, 231, 178, 0.1);
+  border: 2px dashed rgba(246, 231, 178, 0.5);
+  height: 20px;
+  width: 50px;
+  pointer-events: none;
+}
+.control-editable.active,
+.control-editable.visible {
+  display: block;
+}
+.control-editable button {
+  pointer-events: auto;
+}
+.control-editable.active {
+  background: transparent;
+}
