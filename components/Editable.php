@@ -2,6 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Content;
+use Cms\Classes\CmsPropertyHelper;
 use BackendAuth;
 
 class Editable extends ComponentBase
@@ -14,7 +15,7 @@ class Editable extends ComponentBase
     {
         return [
             'name'        => 'Editable Component',
-            'description' => 'No description provided yet...'
+            'description' => 'This component allows in-context editing (click to edit).'
         ];
     }
 
@@ -24,10 +25,14 @@ class Editable extends ComponentBase
             'file' => [
                 'title'       => 'File',
                 'description' => 'File to edit',
-                'default'     => '',
-                'type'        => 'string'
+                'type'        => 'dropdown'
             ]
         ];
+    }
+
+     public function getFileOptions()
+    {
+        return CmsPropertyHelper::listContents();
     }
 
     public function onRun()
