@@ -2,6 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Content;
+use BackendAuth;
 
 class Editable extends ComponentBase
 {
@@ -43,7 +44,7 @@ class Editable extends ComponentBase
     {
         $this->file = $this->property('file');
 
-        if (false)
+        if (!is_object($user = BackendAuth::getUser()) || !$user->hasAccess('cms.manage_pages'))
             return $this->renderContent($this->file);
 
         $this->content = $this->renderContent($this->file);
