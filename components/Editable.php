@@ -2,8 +2,8 @@
 
 use File;
 use BackendAuth;
-use Cms\Classes\ComponentBase;
 use Cms\Classes\Content;
+use Cms\Classes\ComponentBase;
 
 class Editable extends ComponentBase
 {
@@ -17,7 +17,7 @@ class Editable extends ComponentBase
     {
         return [
             'name'        => 'Editable Component',
-            'description' => 'No description provided yet...'
+            'description' => 'This component allows in-context editing.'
         ];
     }
 
@@ -28,9 +28,14 @@ class Editable extends ComponentBase
                 'title'       => 'File',
                 'description' => 'Content block filename to edit, optional',
                 'default'     => '',
-                'type'        => 'string'
+                'type'        => 'dropdown'
             ]
         ];
+    }
+
+    public function getFileOptions()
+    {
+        return Content::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
 
     public function onRun()

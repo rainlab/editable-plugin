@@ -17,7 +17,7 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'Editable',
-            'description' => 'No description provided yet...',
+            'description' => 'In-context content editor',
             'author'      => 'RainLab',
             'icon'        => 'icon-leaf'
         ];
