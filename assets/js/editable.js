@@ -24,17 +24,24 @@
 
         this.originalHtml = null;
         this.requestHandler = this.$el.data('handler')
+        this.fileMode = this.$el.data('fileMode')
         this.editFile = this.$el.data('file')
 
         this.$controlPanel = $('<div />').addClass('control-editable')
-        this.$edit = $('<button />').addClass('btn editable-edit-button').text('Edit').appendTo(this.$controlPanel)
-        this.$save = $('<button />').addClass('btn editable-save-button').text('Save').hide().appendTo(this.$controlPanel)
-        this.$cancel = $('<button />').addClass('btn editable-cancel-button').text('Cancel').hide().appendTo(this.$controlPanel)
+        this.$edit = $('<button />').addClass('editable-edit-button').text('Edit').appendTo(this.$controlPanel)
+        this.$save = $('<button />').addClass('editable-save-button').text('Save').hide().appendTo(this.$controlPanel)
+        this.$cancel = $('<button />').addClass('editable-cancel-button').text('Cancel').hide().appendTo(this.$controlPanel)
 
         $(document.body).append(this.$controlPanel)
 
-        this.$el.on('mouseleave', function(){ self.hideControlPanel() })
-        this.$el.on('mouseenter', function(){ self.showControlPanel() })
+        this.$el.on('mouseleave', function(){
+            self.hideControlPanel()
+        })
+        this.$el.on('mouseenter', function(){
+            self.showControlPanel()
+            self.$edit.removeClass('move-up')
+            setTimeout(function(){ self.$edit.addClass('move-up') }, 0)
+        })
         this.$controlPanel.on('mouseleave', function(){ self.hideControlPanel() })
         this.$controlPanel.on('mouseenter', function(){ self.showControlPanel() })
 
@@ -74,7 +81,19 @@
     }
 
     Editable.prototype.clickEdit = function() {
-        this.$el.redactor({ focus: true })
+        if (this.fileMode == 'htm') {
+            this.$el.redactor({
+                focus: true
+            })
+        }
+        else {
+            this.$el.redactor({
+                focus: true,
+                visual: false,
+                air: true
+            })
+        }
+
         this.refreshControlPanel()
         this.$controlPanel.addClass('active')
         this.$save.show()
@@ -99,7 +118,8 @@
     
     Editable.prototype.showControlPanel = function() {
         this.$controlPanel.addClass('visible')
-        this.refreshControlPanel()
+        if (!this.$controlPanel.hasClass('active'))
+            this.refreshControlPanel()
     }
 
     // EDITABLE PLUGIN DEFINITION

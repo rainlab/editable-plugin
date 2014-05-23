@@ -12,9 +12,71 @@
 .control-editable.visible {
   display: block;
 }
-.control-editable button {
-  pointer-events: auto;
-}
 .control-editable.active {
   background: transparent;
+  border: none;
+}
+.control-editable button {
+  pointer-events: auto;
+  border: none;
+  width: 26px;
+  height: 30px;
+  background-size: 60px 30px;
+  text-indent: -9999px;
+  line-height: 0;
+  overflow: hidden;
+  border-radius: 1px;
+}
+.control-editable button.editable-edit-button {
+  opacity: 0;
+  background-color: transparent;
+  background-image: url('../images/edit-icon.png');
+}
+.control-editable button.editable-edit-button:hover {
+  background-position: 100% 0;
+}
+.control-editable button.editable-save-button,
+.control-editable button.editable-cancel-button {
+  height: 26px;
+  background-color: #f0f0f0;
+  margin: 4px 2px;
+}
+.control-editable button.editable-save-button {
+  background-image: url('../images/save-icon.png');
+}
+.control-editable button.editable-save-button:hover {
+  background-position: 100% 0;
+}
+.control-editable button.editable-cancel-button {
+  margin-right: 4px;
+  background-image: url('../images/cancel-icon.png');
+}
+.control-editable button.editable-cancel-button:hover {
+  background-position: 100% 0;
+}
+.control-editable button.move-up {
+  -webkit-transform: translateY(20px);
+  -moz-transform: translateY(20px);
+  transform: translateY(20px);
+  -webkit-animation: editableMoveUp 0.65s ease forwards;
+  -moz-animation: editableMoveUp 0.65s ease forwards;
+  animation: editableMoveUp 0.65s ease forwards;
+}
+@-webkit-keyframes editableMoveUp {
+  to {
+    -webkit-transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-moz-keyframes editableMoveUp {
+  to {
+    -moz-transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes editableMoveUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

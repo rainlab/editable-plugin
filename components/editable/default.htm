@@ -1,3 +1,7 @@
-<div data-control="editable" data-handler="{{ __SELF__ }}::onSave" data-file="{{ __SELF__.file }}">
+<div
+    data-control="editable"
+    data-handler="{{ __SELF__ }}::onSave"
+    data-file="{{ __SELF__.file }}"
+    data-file-mode="{{ __SELF__.fileMode }}">
     {{ __SELF__.content|raw }}
 </div>

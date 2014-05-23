@@ -1,13 +1,17 @@
 <?php namespace RainLab\Editable\Components;
 
+use File;
+use BackendAuth;
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Content;
 
 class Editable extends ComponentBase
 {
 
-    public $file;
     public $content;
+    public $isEditor;
+    public $file;
+    public $fileMode;
 
     public function componentDetails()
     {
@@ -22,7 +26,7 @@ class Editable extends ComponentBase
         return [
             'file' => [
                 'title'       => 'File',
-                'description' => 'File to edit',
+                'description' => 'Content block filename to edit, optional',
                 'default'     => '',
                 'type'        => 'string'
             ]
@@ -31,19 +35,25 @@ class Editable extends ComponentBase
 
     public function onRun()
     {
-        // Piggy back the Backend's rich editor
-        $this->addCss('/modules/backend/formwidgets/richeditor/assets/vendor/redactor/redactor.css');
-        $this->addJs('/modules/backend/formwidgets/richeditor/assets/vendor/redactor/redactor.js');
+        $backendUser = BackendAuth::getUser();
+        $this->isEditor = ($backendUser && $backendUser->hasAccess('cms.manage_content'));
 
-        $this->addCss('assets/css/editable.css');
-        $this->addJs('assets/js/editable.js');
+        if ($this->isEditor) {
+            // Piggy back the Backend's rich editor
+            $this->addCss('/modules/backend/formwidgets/richeditor/assets/vendor/redactor/redactor.css');
+            $this->addJs('/modules/backend/formwidgets/richeditor/assets/vendor/redactor/redactor.js');
+
+            $this->addCss('assets/css/editable.css');
+            $this->addJs('assets/js/editable.js');
+        }
     }
 
     public function onRender()
     {
         $this->file = $this->property('file');
+        $this->fileMode = File::extension($this->property('file'));
 
-        if (false)
+        if (!$this->isEditor)
             return $this->renderContent($this->file);
 
         $this->content = $this->renderContent($this->file);
