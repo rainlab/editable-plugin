@@ -35,7 +35,7 @@ class Editable extends ComponentBase
 
     public function getFileOptions()
     {
-        return Content::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
+        return Content::sortBy('baseFileName')->lists('baseFileName', 'fileName');
     }
 
     public function onRun()
