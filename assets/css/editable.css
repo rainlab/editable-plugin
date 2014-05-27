@@ -28,7 +28,6 @@
   border-radius: 1px;
 }
 .control-editable button.editable-edit-button {
-  opacity: 0;
   background-color: transparent;
   background-image: url('../images/edit-icon.png');
 }
