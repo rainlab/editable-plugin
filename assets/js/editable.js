@@ -39,8 +39,6 @@
         })
         this.$el.on('mouseenter', function(){
             self.showControlPanel()
-            self.$edit.removeClass('move-up')
-            setTimeout(function(){ self.$edit.addClass('move-up') }, 0)
         })
         this.$controlPanel.on('mouseleave', function(){ self.hideControlPanel() })
         this.$controlPanel.on('mouseenter', function(){ self.showControlPanel() })
