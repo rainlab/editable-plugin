@@ -50,3 +50,8 @@ This block can be made editable by using the following instead:
 ## Permissions
 
 Only administrator with the permission *Manage content* are able to edit content. Administrators must also be logged in to the back-end.
+
+
+## Front-end JavaScript and StyleSheet
+
+The components in this plugin provide custom stylesheet and javascript files to function correctly on the front-end. Ensure that you have `{% scripts %}` and `{% styles %}` in your page or layout.
