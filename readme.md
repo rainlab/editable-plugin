@@ -55,3 +55,5 @@ Only administrator with the permission *Manage content* are able to edit content
 ## Front-end JavaScript and StyleSheet
 
 The components in this plugin provide custom stylesheet and javascript files to function correctly on the front-end. Ensure that you have `{% scripts %}` and `{% styles %}` in your page or layout.
+
+The styles also depend on the October JavaScript Framework, so ensure the `{% framework %}` tag is also included in your page or layout.
