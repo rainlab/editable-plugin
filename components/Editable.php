@@ -28,7 +28,7 @@ class Editable extends ComponentBase
                 'title'       => 'File',
                 'description' => 'Content block filename to edit, optional',
                 'default'     => '',
-                'type'        => 'dropdown'
+                'type'        => 'dropdown',
             ]
         ];
     }
