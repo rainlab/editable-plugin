@@ -40,8 +40,7 @@ class Editable extends ComponentBase
 
     public function onRun()
     {
-        $backendUser = BackendAuth::getUser();
-        $this->isEditor = ($backendUser && $backendUser->hasAccess('cms.manage_content'));
+        $this->isEditor = $this->checkEditor();
 
         if ($this->isEditor) {
             // Piggy back the Backend's rich editor
@@ -66,10 +65,19 @@ class Editable extends ComponentBase
 
     public function onSave()
     {
+        if (!$this->checkEditor())
+            return;
+
         $fileName = post('file');
         $template = Content::load($this->getTheme(), $fileName);
         $template->fill(['content' => post('content')]);
         $template->save();
+    }
+
+    public function checkEditor()
+    {
+        $backendUser = BackendAuth::getUser();
+        return $backendUser && $backendUser->hasAccess('cms.manage_content');
     }
 
 }
