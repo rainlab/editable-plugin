@@ -8,6 +8,7 @@
     height: 20px;
     width: 50px;
     pointer-events: none;
+    z-index: 9000;
 
     &.active, &.visible { display: block; }
 
@@ -19,8 +20,10 @@
     button {
         pointer-events: auto;
         border: none;
-        width: 26px;
-        height: 30px;
+        width: 26px !important;
+        height: 30px !important;
+        padding: 0 !important;
+        margin: 0 !important;
         background-size: 60px 30px;
         text-indent: -9999px;
         line-height: 0;
