@@ -70,7 +70,7 @@ class Editable extends ComponentBase
 
         $fileName = post('file');
         $template = Content::load($this->getTheme(), $fileName);
-        $template->fill(['content' => post('content')]);
+        $template->fill(['markup' => post('content')]);
         $template->save();
     }
 
