@@ -53,7 +53,7 @@
     }
 
     Editable.prototype.clickCancel = function() {
-        this.$el.redactor('set', this.originalHtml)
+        this.$el.redactor('code.set', this.originalHtml)
         this.$el.redactor('core.destroy')
         this.refreshControlPanel()
         this.$controlPanel.removeClass('active')
