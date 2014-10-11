@@ -53,8 +53,8 @@
     }
 
     Editable.prototype.clickCancel = function() {
-        this.$el.redactor('set', this.originalHtml)
-        this.$el.redactor('destroy')
+        this.$el.redactor('code.set', this.originalHtml)
+        this.$el.redactor('core.destroy')
         this.refreshControlPanel()
         this.$controlPanel.removeClass('active')
         this.$edit.show()
@@ -63,8 +63,8 @@
     }
 
     Editable.prototype.clickSave = function() {
-        var html = this.$el.redactor('get')
-        this.$el.redactor('destroy')
+        var html = this.$el.redactor('code.get')
+        this.$el.redactor('core.destroy')
         this.refreshControlPanel()
         this.$controlPanel.removeClass('active')
         this.$edit.show()
@@ -97,7 +97,7 @@
         this.$save.show()
         this.$cancel.show()
         this.$edit.hide()
-        this.originalHtml = this.$el.redactor('get')
+        this.originalHtml = this.$el.redactor('code.get')
     }
 
     Editable.prototype.hideControlPanel = function() {
