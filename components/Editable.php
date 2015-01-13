@@ -57,6 +57,21 @@ class Editable extends ComponentBase
         $this->file = $this->property('file');
         $this->fileMode = File::extension($this->property('file'));
 
+        if (class_exists('\RainLab\Translate\Classes\Translator')){
+            $translator = \RainLab\Translate\Classes\Translator::instance();
+
+            if ($translator->getLocale() != $translator->getDefaultLocale()){
+                $this->file .= '.'.$translator->getLocale().'.htm';
+            }
+
+            $theme = $this->page->controller->getTheme();
+            $fullPath = $theme->getPath().'/content/'.$this->file;
+
+            if (!File::isFile($fullPath)) {
+                $this->file = $this->property('file');
+            }
+        }
+
         if (!$this->isEditor)
             return $this->renderContent($this->file);
 
