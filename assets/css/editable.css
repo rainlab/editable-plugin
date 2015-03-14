@@ -7,6 +7,7 @@
   height: 20px;
   width: 50px;
   pointer-events: none;
+  z-index: 9000;
 }
 .control-editable.active,
 .control-editable.visible {
@@ -19,14 +20,15 @@
 .control-editable button {
   pointer-events: auto;
   border: none;
-  width: 26px;
-  height: 30px;
+  width: 26px !important;
+  height: 30px !important;
+  padding: 0 !important;
+  margin: 0 !important;
   background-size: auto 30px;
   text-indent: -9999px;
   line-height: 0;
   overflow: hidden;
   border-radius: 1px;
-  padding: 0;
 }
 .control-editable button.editable-edit-button {
   background-color: transparent;
@@ -34,7 +36,6 @@
 }
 .control-editable button.editable-edit-button:hover {
   background-position: 100% 0;
-  background-size: auto 30px;
 }
 .control-editable button.editable-save-button,
 .control-editable button.editable-cancel-button {
@@ -47,7 +48,6 @@
 }
 .control-editable button.editable-save-button:hover {
   background-position: 100% 0;
-  background-size: auto 30px;
 }
 .control-editable button.editable-cancel-button {
   margin-right: 4px;
@@ -55,5 +55,4 @@
 }
 .control-editable button.editable-cancel-button:hover {
   background-position: 100% 0;
-  background-size: auto 30px;
 }
