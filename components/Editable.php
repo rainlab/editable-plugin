@@ -7,7 +7,6 @@ use Cms\Classes\ComponentBase;
 
 class Editable extends ComponentBase
 {
-
     public $content;
     public $isEditor;
     public $file;
@@ -28,7 +27,7 @@ class Editable extends ComponentBase
                 'title'       => 'File',
                 'description' => 'Content block filename to edit, optional',
                 'default'     => '',
-                'type'        => 'dropdown',
+                'type'        => 'dropdown'
             ]
         ];
     }
@@ -60,23 +59,27 @@ class Editable extends ComponentBase
         /*
          * Compatability with RainLab.Translate
          */
-        if (class_exists('\RainLab\Translate\Classes\Translator')){
+        if (class_exists('\RainLab\Translate\Classes\Translator')) {
             $locale = \RainLab\Translate\Classes\Translator::instance()->getLocale();
             $fileName = substr_replace($this->file, '.'.$locale, strrpos($this->file, '.'), 0);
-            if (($content = Content::loadCached($this->page->controller->getTheme(), $fileName)) !== null)
+
+            if (($content = Content::loadCached($this->page->controller->getTheme(), $fileName)) !== null) {
                 $this->file = $fileName;
+            }
         }
 
-        if (!$this->isEditor)
+        if (!$this->isEditor) {
             return $this->renderContent($this->file);
+        }
 
         $this->content = $this->renderContent($this->file);
     }
 
     public function onSave()
     {
-        if (!$this->checkEditor())
+        if (!$this->checkEditor()) {
             return;
+        }
 
         $fileName = post('file');
         $template = Content::load($this->getTheme(), $fileName);
@@ -87,7 +90,7 @@ class Editable extends ComponentBase
     public function checkEditor()
     {
         $backendUser = BackendAuth::getUser();
+
         return $backendUser && $backendUser->hasAccess('cms.manage_content');
     }
-
 }
