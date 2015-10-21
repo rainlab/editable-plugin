@@ -2,32 +2,23 @@
 
 use System\Classes\PluginBase;
 
-/**
- * Editable Plugin Information File
- */
 class Plugin extends PluginBase
 {
-
-    /**
-     * Returns information about this plugin.
-     *
-     * @return array
-     */
     public function pluginDetails()
     {
         return [
             'name'        => 'Editable',
             'description' => 'In-context content editor',
             'author'      => 'RainLab',
-            'icon'        => 'icon-leaf'
+            'icon'        => 'icon-leaf',
+            'homepage'    => 'https://github.com/rainlab/editable-plugin'
         ];
     }
 
     public function registerComponents()
     {
         return [
-            'RainLab\Editable\Components\Editable' => 'editable',
+            'RainLab\Editable\Components\Editable' => 'editable'
         ];
     }
-
 }
