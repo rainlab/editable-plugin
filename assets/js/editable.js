@@ -1,6 +1,6 @@
 /*
  * Editable plugin
- * 
+ *
  * Data attributes:
  * - data-control="example" - enables the plugin on an element
  * - data-option="value" - an option with a value
@@ -8,7 +8,7 @@
  * JavaScript API:
  * $('a#someElement').editable({ option: 'value' })
  *
- * Dependences: 
+ * Dependences:
  * - Some other plugin (filename.js)
  */
 
@@ -37,7 +37,7 @@
         this.$el.on('mouseleave', function(){
             self.hideControlPanel()
         })
-        this.$el.on('mouseenter', function(){
+        this.$el.on('mousemove', function(){
             self.showControlPanel()
         })
         this.$controlPanel.on('mouseleave', function(){ self.hideControlPanel() })
@@ -113,7 +113,7 @@
                 left: this.$el.offset().left + this.$el.outerWidth() - this.$controlPanel.outerWidth()
             })
     }
-    
+
     Editable.prototype.showControlPanel = function() {
         this.$controlPanel.addClass('visible')
         if (!this.$controlPanel.hasClass('active'))
