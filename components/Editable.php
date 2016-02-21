@@ -7,7 +7,6 @@ use Cms\Classes\ComponentBase;
 
 class Editable extends ComponentBase
 {
-
     public $content;
     public $isEditor;
     public $file;
@@ -16,8 +15,8 @@ class Editable extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'Editable Component',
-            'description' => 'This component allows in-context editing.'
+            'name' => 'rainlab.editable::lang.component_editable.name',
+            'description' => 'rainlab.editable::lang.component_editable.description',
         ];
     }
 
@@ -25,10 +24,10 @@ class Editable extends ComponentBase
     {
         return [
             'file' => [
-                'title'       => 'File',
-                'description' => 'Content block filename to edit, optional',
-                'default'     => '',
-                'type'        => 'dropdown',
+                'title' => 'rainlab.editable::lang.component_editable.property_file.title',
+                'description' => 'rainlab.editable::lang.component_editable.property_file.description',
+                'default' => '',
+                'type' => 'dropdown',
             ]
         ];
     }
