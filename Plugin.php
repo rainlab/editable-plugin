@@ -7,7 +7,6 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
-
     /**
      * Returns information about this plugin.
      *
@@ -16,10 +15,10 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Editable',
-            'description' => 'In-context content editor',
-            'author'      => 'RainLab',
-            'icon'        => 'icon-leaf'
+            'name' => 'rainlab.editable::lang.plugin.name',
+            'description' => 'rainlab.editable::lang.plugin.description',
+            'author' => 'RainLab',
+            'icon' => 'icon-leaf'
         ];
     }
 
@@ -29,5 +28,4 @@ class Plugin extends PluginBase
             'RainLab\Editable\Components\Editable' => 'editable',
         ];
     }
-
 }
