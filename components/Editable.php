@@ -43,9 +43,8 @@ class Editable extends ComponentBase
         $this->isEditor = $this->checkEditor();
 
         if ($this->isEditor) {
-            // Piggy back the Backend's rich editor
-            $this->addCss('/modules/backend/formwidgets/richeditor/assets/vendor/redactor/redactor.css');
-            $this->addJs('/modules/backend/formwidgets/richeditor/assets/vendor/redactor/redactor.js');
+            $this->addCss('assets/vendor/redactor/redactor.css');
+            $this->addJs('assets/vendor/redactor/redactor.js');
 
             $this->addCss('assets/css/editable.css');
             $this->addJs('assets/js/editable.js');
