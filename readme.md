@@ -6,6 +6,12 @@ Only allocated content blocks found in the theme can be edited. Content blocks a
 
 Implementation is simply replacing the `{% content %}` tags with the component.
 
+## Proof of concept
+
+Note while this plugin works fine, it is created as a proof of concept. Check out these other plugins that offer the same functionality (probably better):
+
+- [Content Editor](https://octobercms.com/plugin/samuell-contenteditor)
+
 ## Using the editable component
 
 First you must ensure that the Editable component is attached to the page or layout. Then create a content block using the CMS.
