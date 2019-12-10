@@ -4,3 +4,4 @@
 1.0.4: Fixed references to Redactor's "get" and "destroy" methods
 1.0.5: Fixed button css issue
 1.0.6: Remove dependency on backend rich editor control.
+1.0.7: Fixed size() is not a function bug, granted access to users with `rainlab.pages.manage_content`, added Hungarian, Turkish, & Slovenian translations.
